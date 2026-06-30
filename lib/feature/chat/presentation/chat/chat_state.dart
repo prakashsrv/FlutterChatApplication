@@ -6,6 +6,8 @@ part 'chat_state.freezed.dart';
 
 @freezed
 class ChatState with _$ChatState {
+  const ChatState._(); // prevents IDE from injecting abstract getter stubs
+
   const factory ChatState({
     @Default([]) List<Message> messages,
     @Default('') String inputText,

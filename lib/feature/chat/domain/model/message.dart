@@ -5,6 +5,8 @@ part 'message.freezed.dart';
 
 @freezed
 class Message with _$Message {
+  const Message._(); // allows custom methods; also prevents IDE from injecting stubs
+
   const factory Message({
     /// Client-generated UUID — stable across optimistic send → server echo.
     required String id,
