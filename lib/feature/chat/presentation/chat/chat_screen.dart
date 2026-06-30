@@ -10,6 +10,7 @@ import 'chat_event.dart';
 import 'chat_state.dart';
 import 'widgets/chat_input_bar.dart';
 import 'widgets/message_bubble.dart';
+import 'widgets/sync_status_banner.dart';
 import 'widgets/typing_indicator.dart';
 
 /// The main chat screen.
@@ -77,6 +78,11 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       body: Column(
         children: [
+          // Background-sync status banner (hidden when connected).
+          BlocBuilder<ChatBloc, ChatState>(
+            buildWhen: (p, c) => p.syncStatus != c.syncStatus,
+            builder: (_, state) => SyncStatusBanner(status: state.syncStatus),
+          ),
           Expanded(
             child: BlocBuilder<ChatBloc, ChatState>(
               builder: (context, state) {

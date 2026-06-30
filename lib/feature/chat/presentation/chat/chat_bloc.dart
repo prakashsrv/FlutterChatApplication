@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/stream/fake_network_config.dart';
+import '../../data/sync/background_sync_manager.dart';
 import '../../domain/stream/chat_message_stream.dart';
 import '../../domain/usecase/observe_messages_usecase.dart';
 import '../../domain/usecase/retry_message_usecase.dart';
@@ -23,6 +24,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     required RetryMessageUseCase retryMessageUseCase,
     required ChatMessageStream chatMessageStream,
     required FakeNetworkConfig networkConfig,
+    required BackgroundSyncManager syncManager,
   })  : _sendMessage = sendMessageUseCase,
         _retryMessage = retryMessageUseCase,
         _networkConfig = networkConfig,
@@ -33,6 +35,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     on<SimulateNextFailure>(_onSimulateNextFailure);
     on<MessagesUpdated>(_onMessagesUpdated);
     on<TypingChanged>(_onTypingChanged);
+    on<SyncStatusChanged>(_onSyncStatusChanged);
 
     // Subscribe to the reactive DB stream.
     _messagesSub = observeMessagesUseCase().listen(
@@ -43,6 +46,11 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     _typingSub = chatMessageStream.isTyping.listen(
       (isTyping) => add(ChatEvent.typingChanged(isTyping)),
     );
+
+    // Subscribe to background-sync status transitions.
+    _syncSub = syncManager.syncStatus.listen(
+      (status) => add(ChatEvent.syncStatusChanged(status)),
+    );
   }
 
   final SendMessageUseCase _sendMessage;
@@ -51,6 +59,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
 
   late final StreamSubscription<void> _messagesSub;
   late final StreamSubscription<void> _typingSub;
+  late final StreamSubscription<void> _syncSub;
 
   // One-shot effect channel — semantically identical to Android's SharedFlow.
   final _effectController = StreamController<ChatEffect>.broadcast();
@@ -89,7 +98,6 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     final previous = state.messages;
     emit(state.copyWith(messages: event.messages));
 
-    // Scroll to bottom when a new message arrives.
     if (event.messages.length > previous.length) {
       _effectController.add(const ChatEffect.scrollToBottom());
     }
@@ -97,6 +105,11 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
 
   void _onTypingChanged(TypingChanged event, Emitter<ChatState> emit) {
     emit(state.copyWith(isTypingIndicatorVisible: event.isTyping));
+  }
+
+  void _onSyncStatusChanged(
+      SyncStatusChanged event, Emitter<ChatState> emit) {
+    emit(state.copyWith(syncStatus: event.status));
   }
 
   // ---------------------------------------------------------------------------
@@ -107,6 +120,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   Future<void> close() async {
     await _messagesSub.cancel();
     await _typingSub.cancel();
+    await _syncSub.cancel();
     await _effectController.close();
     return super.close();
   }

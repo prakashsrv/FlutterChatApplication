@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/model/message.dart';
+import '../../domain/sync/sync_status.dart';
 
 part 'chat_event.freezed.dart';
 
@@ -19,4 +20,6 @@ sealed class ChatEvent with _$ChatEvent {
   const factory ChatEvent.messagesUpdated(List<Message> messages) =
       MessagesUpdated;
   const factory ChatEvent.typingChanged(bool isTyping) = TypingChanged;
+  const factory ChatEvent.syncStatusChanged(SyncStatus status) =
+      SyncStatusChanged;
 }
