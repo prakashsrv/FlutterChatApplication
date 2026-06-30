@@ -1,0 +1,212 @@
+{
+  "elements": {
+    "messages": {
+      "id": {
+        "library_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+        "name": "messages"
+      },
+      "declaration": {
+        "source_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+        "offset": 121,
+        "name": "MessagesTable"
+      },
+      "references": [],
+      "type": "table",
+      "columns": [
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "id",
+          "nameInDart": "id",
+          "declaration": {
+            "source_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+            "offset": 294,
+            "name": "id"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// Client-generated UUID — the stable primary key for optimistic sends.",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "server_id",
+          "nameInDart": "serverId",
+          "declaration": {
+            "source_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+            "offset": 462,
+            "name": "serverId"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// Server-assigned id; null until the server acknowledges the message.\n/// Unique index below prevents duplicate inbound echoes.",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "content",
+          "nameInDart": "content",
+          "declaration": {
+            "source_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+            "offset": 513,
+            "name": "content"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "sender_id",
+          "nameInDart": "senderId",
+          "declaration": {
+            "source_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+            "offset": 551,
+            "name": "senderId"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "client_timestamp",
+          "nameInDart": "clientTimestamp",
+          "declaration": {
+            "source_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+            "offset": 659,
+            "name": "clientTimestamp"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// UTC millis set by the client at send time — used for ordering.",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": true,
+          "nameInSql": "server_timestamp",
+          "nameInDart": "serverTimestamp",
+          "declaration": {
+            "source_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+            "offset": 771,
+            "name": "serverTimestamp"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// UTC millis from the server; null until the echo arrives.",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "status",
+          "nameInDart": "status",
+          "declaration": {
+            "source_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+            "offset": 888,
+            "name": "status"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// Stored as string (\"pending\" | \"sent\" | \"failed\").",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "bool"
+          },
+          "nullable": false,
+          "nameInSql": "is_own",
+          "nameInDart": "isOwn",
+          "declaration": {
+            "source_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+            "offset": 926,
+            "name": "isOwn"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        }
+      ],
+      "existing_data_class": null,
+      "table_constraints": [
+        {
+          "type": "primary_key",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "custom_parent_class": null,
+      "interfaces_for_row_class": [],
+      "fixed_entity_info_name": null,
+      "base_dart_name": "MessagesTable",
+      "row_class_name": "MessagesTableData",
+      "companion_class_name": null,
+      "without_rowid": false,
+      "strict": false,
+      "write_default_constraints": true,
+      "custom_constraints": [
+        "UNIQUE (server_id) ON CONFLICT REPLACE"
+      ],
+      "attached_indices": []
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "elements": {
+    "AppDatabase": {
+      "id": {
+        "library_uri": "package:flutter_chat_app/core/database/app_database.dart",
+        "name": "AppDatabase"
+      },
+      "declaration": {
+        "source_uri": "package:flutter_chat_app/core/database/app_database.dart",
+        "offset": 505,
+        "name": "AppDatabase"
+      },
+      "references": [
+        {
+          "library_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+          "name": "messages"
+        }
+      ],
+      "type": "database",
+      "tables": [
+        {
+          "library_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+          "name": "messages"
+        }
+      ],
+      "views": [],
+      "includes": [],
+      "queries": [],
+      "schema_version": 1,
+      "daos": [
+        {
+          "library_uri": "package:flutter_chat_app/feature/chat/data/local/chat_dao.dart",
+          "name": "ChatDao"
+        }
+      ],
+      "has_constructor_arg": false
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:drift/native.dart",
+    "package:path/path.dart",
+    "package:path_provider/path_provider.dart",
+    "package:flutter_chat_app/feature/chat/data/local/chat_dao.dart",
+    "package:flutter_chat_app/feature/chat/data/local/messages_table.dart"
+  ]
+}

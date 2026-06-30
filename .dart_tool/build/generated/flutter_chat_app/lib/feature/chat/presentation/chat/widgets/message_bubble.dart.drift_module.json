@@ -1,0 +1,9 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:intl/intl.dart",
+    "package:flutter_chat_app/feature/chat/domain/model/message.dart",
+    "package:flutter_chat_app/feature/chat/domain/model/message_status.dart"
+  ]
+}

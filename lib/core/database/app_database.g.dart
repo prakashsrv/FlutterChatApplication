@@ -1,0 +1,699 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'app_database.dart';
+
+// ignore_for_file: type=lint
+class $MessagesTableTable extends MessagesTable
+    with TableInfo<$MessagesTableTable, MessagesTableData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MessagesTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+      'id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _serverIdMeta =
+      const VerificationMeta('serverId');
+  @override
+  late final GeneratedColumn<String> serverId = GeneratedColumn<String>(
+      'server_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _contentMeta =
+      const VerificationMeta('content');
+  @override
+  late final GeneratedColumn<String> content = GeneratedColumn<String>(
+      'content', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _senderIdMeta =
+      const VerificationMeta('senderId');
+  @override
+  late final GeneratedColumn<String> senderId = GeneratedColumn<String>(
+      'sender_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _clientTimestampMeta =
+      const VerificationMeta('clientTimestamp');
+  @override
+  late final GeneratedColumn<int> clientTimestamp = GeneratedColumn<int>(
+      'client_timestamp', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _serverTimestampMeta =
+      const VerificationMeta('serverTimestamp');
+  @override
+  late final GeneratedColumn<int> serverTimestamp = GeneratedColumn<int>(
+      'server_timestamp', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _statusMeta = const VerificationMeta('status');
+  @override
+  late final GeneratedColumn<String> status = GeneratedColumn<String>(
+      'status', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _isOwnMeta = const VerificationMeta('isOwn');
+  @override
+  late final GeneratedColumn<bool> isOwn = GeneratedColumn<bool>(
+      'is_own', aliasedName, false,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: true,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('CHECK ("is_own" IN (0, 1))'));
+  @override
+  List<GeneratedColumn> get $columns => [
+        id,
+        serverId,
+        content,
+        senderId,
+        clientTimestamp,
+        serverTimestamp,
+        status,
+        isOwn
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'messages';
+  @override
+  VerificationContext validateIntegrity(Insertable<MessagesTableData> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('server_id')) {
+      context.handle(_serverIdMeta,
+          serverId.isAcceptableOrUnknown(data['server_id']!, _serverIdMeta));
+    }
+    if (data.containsKey('content')) {
+      context.handle(_contentMeta,
+          content.isAcceptableOrUnknown(data['content']!, _contentMeta));
+    } else if (isInserting) {
+      context.missing(_contentMeta);
+    }
+    if (data.containsKey('sender_id')) {
+      context.handle(_senderIdMeta,
+          senderId.isAcceptableOrUnknown(data['sender_id']!, _senderIdMeta));
+    } else if (isInserting) {
+      context.missing(_senderIdMeta);
+    }
+    if (data.containsKey('client_timestamp')) {
+      context.handle(
+          _clientTimestampMeta,
+          clientTimestamp.isAcceptableOrUnknown(
+              data['client_timestamp']!, _clientTimestampMeta));
+    } else if (isInserting) {
+      context.missing(_clientTimestampMeta);
+    }
+    if (data.containsKey('server_timestamp')) {
+      context.handle(
+          _serverTimestampMeta,
+          serverTimestamp.isAcceptableOrUnknown(
+              data['server_timestamp']!, _serverTimestampMeta));
+    }
+    if (data.containsKey('status')) {
+      context.handle(_statusMeta,
+          status.isAcceptableOrUnknown(data['status']!, _statusMeta));
+    } else if (isInserting) {
+      context.missing(_statusMeta);
+    }
+    if (data.containsKey('is_own')) {
+      context.handle(
+          _isOwnMeta, isOwn.isAcceptableOrUnknown(data['is_own']!, _isOwnMeta));
+    } else if (isInserting) {
+      context.missing(_isOwnMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  MessagesTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MessagesTableData(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}id'])!,
+      serverId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}server_id']),
+      content: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}content'])!,
+      senderId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}sender_id'])!,
+      clientTimestamp: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}client_timestamp'])!,
+      serverTimestamp: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}server_timestamp']),
+      status: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}status'])!,
+      isOwn: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}is_own'])!,
+    );
+  }
+
+  @override
+  $MessagesTableTable createAlias(String alias) {
+    return $MessagesTableTable(attachedDatabase, alias);
+  }
+}
+
+class MessagesTableData extends DataClass
+    implements Insertable<MessagesTableData> {
+  /// Client-generated UUID — the stable primary key for optimistic sends.
+  final String id;
+
+  /// Server-assigned id; null until the server acknowledges the message.
+  /// Unique index below prevents duplicate inbound echoes.
+  final String? serverId;
+  final String content;
+  final String senderId;
+
+  /// UTC millis set by the client at send time — used for ordering.
+  final int clientTimestamp;
+
+  /// UTC millis from the server; null until the echo arrives.
+  final int? serverTimestamp;
+
+  /// Stored as string ("pending" | "sent" | "failed").
+  final String status;
+  final bool isOwn;
+  const MessagesTableData(
+      {required this.id,
+      this.serverId,
+      required this.content,
+      required this.senderId,
+      required this.clientTimestamp,
+      this.serverTimestamp,
+      required this.status,
+      required this.isOwn});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    if (!nullToAbsent || serverId != null) {
+      map['server_id'] = Variable<String>(serverId);
+    }
+    map['content'] = Variable<String>(content);
+    map['sender_id'] = Variable<String>(senderId);
+    map['client_timestamp'] = Variable<int>(clientTimestamp);
+    if (!nullToAbsent || serverTimestamp != null) {
+      map['server_timestamp'] = Variable<int>(serverTimestamp);
+    }
+    map['status'] = Variable<String>(status);
+    map['is_own'] = Variable<bool>(isOwn);
+    return map;
+  }
+
+  MessagesTableCompanion toCompanion(bool nullToAbsent) {
+    return MessagesTableCompanion(
+      id: Value(id),
+      serverId: serverId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(serverId),
+      content: Value(content),
+      senderId: Value(senderId),
+      clientTimestamp: Value(clientTimestamp),
+      serverTimestamp: serverTimestamp == null && nullToAbsent
+          ? const Value.absent()
+          : Value(serverTimestamp),
+      status: Value(status),
+      isOwn: Value(isOwn),
+    );
+  }
+
+  factory MessagesTableData.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MessagesTableData(
+      id: serializer.fromJson<String>(json['id']),
+      serverId: serializer.fromJson<String?>(json['serverId']),
+      content: serializer.fromJson<String>(json['content']),
+      senderId: serializer.fromJson<String>(json['senderId']),
+      clientTimestamp: serializer.fromJson<int>(json['clientTimestamp']),
+      serverTimestamp: serializer.fromJson<int?>(json['serverTimestamp']),
+      status: serializer.fromJson<String>(json['status']),
+      isOwn: serializer.fromJson<bool>(json['isOwn']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'serverId': serializer.toJson<String?>(serverId),
+      'content': serializer.toJson<String>(content),
+      'senderId': serializer.toJson<String>(senderId),
+      'clientTimestamp': serializer.toJson<int>(clientTimestamp),
+      'serverTimestamp': serializer.toJson<int?>(serverTimestamp),
+      'status': serializer.toJson<String>(status),
+      'isOwn': serializer.toJson<bool>(isOwn),
+    };
+  }
+
+  MessagesTableData copyWith(
+          {String? id,
+          Value<String?> serverId = const Value.absent(),
+          String? content,
+          String? senderId,
+          int? clientTimestamp,
+          Value<int?> serverTimestamp = const Value.absent(),
+          String? status,
+          bool? isOwn}) =>
+      MessagesTableData(
+        id: id ?? this.id,
+        serverId: serverId.present ? serverId.value : this.serverId,
+        content: content ?? this.content,
+        senderId: senderId ?? this.senderId,
+        clientTimestamp: clientTimestamp ?? this.clientTimestamp,
+        serverTimestamp: serverTimestamp.present
+            ? serverTimestamp.value
+            : this.serverTimestamp,
+        status: status ?? this.status,
+        isOwn: isOwn ?? this.isOwn,
+      );
+  MessagesTableData copyWithCompanion(MessagesTableCompanion data) {
+    return MessagesTableData(
+      id: data.id.present ? data.id.value : this.id,
+      serverId: data.serverId.present ? data.serverId.value : this.serverId,
+      content: data.content.present ? data.content.value : this.content,
+      senderId: data.senderId.present ? data.senderId.value : this.senderId,
+      clientTimestamp: data.clientTimestamp.present
+          ? data.clientTimestamp.value
+          : this.clientTimestamp,
+      serverTimestamp: data.serverTimestamp.present
+          ? data.serverTimestamp.value
+          : this.serverTimestamp,
+      status: data.status.present ? data.status.value : this.status,
+      isOwn: data.isOwn.present ? data.isOwn.value : this.isOwn,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MessagesTableData(')
+          ..write('id: $id, ')
+          ..write('serverId: $serverId, ')
+          ..write('content: $content, ')
+          ..write('senderId: $senderId, ')
+          ..write('clientTimestamp: $clientTimestamp, ')
+          ..write('serverTimestamp: $serverTimestamp, ')
+          ..write('status: $status, ')
+          ..write('isOwn: $isOwn')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, serverId, content, senderId,
+      clientTimestamp, serverTimestamp, status, isOwn);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MessagesTableData &&
+          other.id == this.id &&
+          other.serverId == this.serverId &&
+          other.content == this.content &&
+          other.senderId == this.senderId &&
+          other.clientTimestamp == this.clientTimestamp &&
+          other.serverTimestamp == this.serverTimestamp &&
+          other.status == this.status &&
+          other.isOwn == this.isOwn);
+}
+
+class MessagesTableCompanion extends UpdateCompanion<MessagesTableData> {
+  final Value<String> id;
+  final Value<String?> serverId;
+  final Value<String> content;
+  final Value<String> senderId;
+  final Value<int> clientTimestamp;
+  final Value<int?> serverTimestamp;
+  final Value<String> status;
+  final Value<bool> isOwn;
+  final Value<int> rowid;
+  const MessagesTableCompanion({
+    this.id = const Value.absent(),
+    this.serverId = const Value.absent(),
+    this.content = const Value.absent(),
+    this.senderId = const Value.absent(),
+    this.clientTimestamp = const Value.absent(),
+    this.serverTimestamp = const Value.absent(),
+    this.status = const Value.absent(),
+    this.isOwn = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  MessagesTableCompanion.insert({
+    required String id,
+    this.serverId = const Value.absent(),
+    required String content,
+    required String senderId,
+    required int clientTimestamp,
+    this.serverTimestamp = const Value.absent(),
+    required String status,
+    required bool isOwn,
+    this.rowid = const Value.absent(),
+  })  : id = Value(id),
+        content = Value(content),
+        senderId = Value(senderId),
+        clientTimestamp = Value(clientTimestamp),
+        status = Value(status),
+        isOwn = Value(isOwn);
+  static Insertable<MessagesTableData> custom({
+    Expression<String>? id,
+    Expression<String>? serverId,
+    Expression<String>? content,
+    Expression<String>? senderId,
+    Expression<int>? clientTimestamp,
+    Expression<int>? serverTimestamp,
+    Expression<String>? status,
+    Expression<bool>? isOwn,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (serverId != null) 'server_id': serverId,
+      if (content != null) 'content': content,
+      if (senderId != null) 'sender_id': senderId,
+      if (clientTimestamp != null) 'client_timestamp': clientTimestamp,
+      if (serverTimestamp != null) 'server_timestamp': serverTimestamp,
+      if (status != null) 'status': status,
+      if (isOwn != null) 'is_own': isOwn,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  MessagesTableCompanion copyWith(
+      {Value<String>? id,
+      Value<String?>? serverId,
+      Value<String>? content,
+      Value<String>? senderId,
+      Value<int>? clientTimestamp,
+      Value<int?>? serverTimestamp,
+      Value<String>? status,
+      Value<bool>? isOwn,
+      Value<int>? rowid}) {
+    return MessagesTableCompanion(
+      id: id ?? this.id,
+      serverId: serverId ?? this.serverId,
+      content: content ?? this.content,
+      senderId: senderId ?? this.senderId,
+      clientTimestamp: clientTimestamp ?? this.clientTimestamp,
+      serverTimestamp: serverTimestamp ?? this.serverTimestamp,
+      status: status ?? this.status,
+      isOwn: isOwn ?? this.isOwn,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (serverId.present) {
+      map['server_id'] = Variable<String>(serverId.value);
+    }
+    if (content.present) {
+      map['content'] = Variable<String>(content.value);
+    }
+    if (senderId.present) {
+      map['sender_id'] = Variable<String>(senderId.value);
+    }
+    if (clientTimestamp.present) {
+      map['client_timestamp'] = Variable<int>(clientTimestamp.value);
+    }
+    if (serverTimestamp.present) {
+      map['server_timestamp'] = Variable<int>(serverTimestamp.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(status.value);
+    }
+    if (isOwn.present) {
+      map['is_own'] = Variable<bool>(isOwn.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MessagesTableCompanion(')
+          ..write('id: $id, ')
+          ..write('serverId: $serverId, ')
+          ..write('content: $content, ')
+          ..write('senderId: $senderId, ')
+          ..write('clientTimestamp: $clientTimestamp, ')
+          ..write('serverTimestamp: $serverTimestamp, ')
+          ..write('status: $status, ')
+          ..write('isOwn: $isOwn, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+abstract class _$AppDatabase extends GeneratedDatabase {
+  _$AppDatabase(QueryExecutor e) : super(e);
+  $AppDatabaseManager get managers => $AppDatabaseManager(this);
+  late final $MessagesTableTable messagesTable = $MessagesTableTable(this);
+  late final ChatDao chatDao = ChatDao(this as AppDatabase);
+  @override
+  Iterable<TableInfo<Table, Object?>> get allTables =>
+      allSchemaEntities.whereType<TableInfo<Table, Object?>>();
+  @override
+  List<DatabaseSchemaEntity> get allSchemaEntities => [messagesTable];
+}
+
+typedef $$MessagesTableTableCreateCompanionBuilder = MessagesTableCompanion
+    Function({
+  required String id,
+  Value<String?> serverId,
+  required String content,
+  required String senderId,
+  required int clientTimestamp,
+  Value<int?> serverTimestamp,
+  required String status,
+  required bool isOwn,
+  Value<int> rowid,
+});
+typedef $$MessagesTableTableUpdateCompanionBuilder = MessagesTableCompanion
+    Function({
+  Value<String> id,
+  Value<String?> serverId,
+  Value<String> content,
+  Value<String> senderId,
+  Value<int> clientTimestamp,
+  Value<int?> serverTimestamp,
+  Value<String> status,
+  Value<bool> isOwn,
+  Value<int> rowid,
+});
+
+class $$MessagesTableTableFilterComposer
+    extends Composer<_$AppDatabase, $MessagesTableTable> {
+  $$MessagesTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get serverId => $composableBuilder(
+      column: $table.serverId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get content => $composableBuilder(
+      column: $table.content, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get senderId => $composableBuilder(
+      column: $table.senderId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get clientTimestamp => $composableBuilder(
+      column: $table.clientTimestamp,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get serverTimestamp => $composableBuilder(
+      column: $table.serverTimestamp,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get status => $composableBuilder(
+      column: $table.status, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isOwn => $composableBuilder(
+      column: $table.isOwn, builder: (column) => ColumnFilters(column));
+}
+
+class $$MessagesTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $MessagesTableTable> {
+  $$MessagesTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get serverId => $composableBuilder(
+      column: $table.serverId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get content => $composableBuilder(
+      column: $table.content, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get senderId => $composableBuilder(
+      column: $table.senderId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get clientTimestamp => $composableBuilder(
+      column: $table.clientTimestamp,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get serverTimestamp => $composableBuilder(
+      column: $table.serverTimestamp,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get status => $composableBuilder(
+      column: $table.status, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isOwn => $composableBuilder(
+      column: $table.isOwn, builder: (column) => ColumnOrderings(column));
+}
+
+class $$MessagesTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MessagesTableTable> {
+  $$MessagesTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get serverId =>
+      $composableBuilder(column: $table.serverId, builder: (column) => column);
+
+  GeneratedColumn<String> get content =>
+      $composableBuilder(column: $table.content, builder: (column) => column);
+
+  GeneratedColumn<String> get senderId =>
+      $composableBuilder(column: $table.senderId, builder: (column) => column);
+
+  GeneratedColumn<int> get clientTimestamp => $composableBuilder(
+      column: $table.clientTimestamp, builder: (column) => column);
+
+  GeneratedColumn<int> get serverTimestamp => $composableBuilder(
+      column: $table.serverTimestamp, builder: (column) => column);
+
+  GeneratedColumn<String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<bool> get isOwn =>
+      $composableBuilder(column: $table.isOwn, builder: (column) => column);
+}
+
+class $$MessagesTableTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $MessagesTableTable,
+    MessagesTableData,
+    $$MessagesTableTableFilterComposer,
+    $$MessagesTableTableOrderingComposer,
+    $$MessagesTableTableAnnotationComposer,
+    $$MessagesTableTableCreateCompanionBuilder,
+    $$MessagesTableTableUpdateCompanionBuilder,
+    (
+      MessagesTableData,
+      BaseReferences<_$AppDatabase, $MessagesTableTable, MessagesTableData>
+    ),
+    MessagesTableData,
+    PrefetchHooks Function()> {
+  $$MessagesTableTableTableManager(_$AppDatabase db, $MessagesTableTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MessagesTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MessagesTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MessagesTableTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String> id = const Value.absent(),
+            Value<String?> serverId = const Value.absent(),
+            Value<String> content = const Value.absent(),
+            Value<String> senderId = const Value.absent(),
+            Value<int> clientTimestamp = const Value.absent(),
+            Value<int?> serverTimestamp = const Value.absent(),
+            Value<String> status = const Value.absent(),
+            Value<bool> isOwn = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              MessagesTableCompanion(
+            id: id,
+            serverId: serverId,
+            content: content,
+            senderId: senderId,
+            clientTimestamp: clientTimestamp,
+            serverTimestamp: serverTimestamp,
+            status: status,
+            isOwn: isOwn,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String id,
+            Value<String?> serverId = const Value.absent(),
+            required String content,
+            required String senderId,
+            required int clientTimestamp,
+            Value<int?> serverTimestamp = const Value.absent(),
+            required String status,
+            required bool isOwn,
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              MessagesTableCompanion.insert(
+            id: id,
+            serverId: serverId,
+            content: content,
+            senderId: senderId,
+            clientTimestamp: clientTimestamp,
+            serverTimestamp: serverTimestamp,
+            status: status,
+            isOwn: isOwn,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$MessagesTableTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $MessagesTableTable,
+    MessagesTableData,
+    $$MessagesTableTableFilterComposer,
+    $$MessagesTableTableOrderingComposer,
+    $$MessagesTableTableAnnotationComposer,
+    $$MessagesTableTableCreateCompanionBuilder,
+    $$MessagesTableTableUpdateCompanionBuilder,
+    (
+      MessagesTableData,
+      BaseReferences<_$AppDatabase, $MessagesTableTable, MessagesTableData>
+    ),
+    MessagesTableData,
+    PrefetchHooks Function()>;
+
+class $AppDatabaseManager {
+  final _$AppDatabase _db;
+  $AppDatabaseManager(this._db);
+  $$MessagesTableTableTableManager get messagesTable =>
+      $$MessagesTableTableTableManager(_db, _db.messagesTable);
+}

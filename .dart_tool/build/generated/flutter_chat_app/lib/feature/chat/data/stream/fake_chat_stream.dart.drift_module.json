@@ -1,0 +1,9 @@
+{
+  "elements": {},
+  "imports": [
+    "package:uuid/uuid.dart",
+    "package:flutter_chat_app/feature/chat/domain/model/message.dart",
+    "package:flutter_chat_app/feature/chat/domain/model/message_status.dart",
+    "package:flutter_chat_app/feature/chat/domain/stream/chat_message_stream.dart"
+  ]
+}

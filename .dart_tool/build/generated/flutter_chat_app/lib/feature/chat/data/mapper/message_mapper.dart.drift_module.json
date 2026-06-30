@@ -1,0 +1,10 @@
+{
+  "elements": {},
+  "imports": [
+    "package:drift/drift.dart",
+    "package:flutter_chat_app/core/database/app_database.dart",
+    "package:flutter_chat_app/feature/chat/domain/model/message.dart",
+    "package:flutter_chat_app/feature/chat/domain/model/message_status.dart",
+    "package:flutter_chat_app/feature/chat/data/local/messages_table.dart"
+  ]
+}

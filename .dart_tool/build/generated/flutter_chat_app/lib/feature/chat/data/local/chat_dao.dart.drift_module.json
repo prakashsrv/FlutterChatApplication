@@ -1,0 +1,52 @@
+{
+  "elements": {
+    "ChatDao": {
+      "id": {
+        "library_uri": "package:flutter_chat_app/feature/chat/data/local/chat_dao.dart",
+        "name": "ChatDao"
+      },
+      "declaration": {
+        "source_uri": "package:flutter_chat_app/feature/chat/data/local/chat_dao.dart",
+        "offset": 268,
+        "name": "ChatDao"
+      },
+      "references": [
+        {
+          "library_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+          "name": "messages"
+        }
+      ],
+      "type": "dao",
+      "tables": [
+        {
+          "library_uri": "package:flutter_chat_app/feature/chat/data/local/messages_table.dart",
+          "name": "messages"
+        }
+      ],
+      "views": [],
+      "includes": [],
+      "queries": [],
+      "dart_type": {
+        "elements": [
+          {
+            "lexeme": "ChatDao",
+            "import_uri": "package:flutter_chat_app/feature/chat/data/local/chat_dao.dart"
+          }
+        ]
+      },
+      "database": {
+        "elements": [
+          {
+            "lexeme": "AppDatabase",
+            "import_uri": "package:flutter_chat_app/core/database/app_database.dart"
+          }
+        ]
+      }
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:flutter_chat_app/core/database/app_database.dart",
+    "package:flutter_chat_app/feature/chat/data/local/messages_table.dart"
+  ]
+}

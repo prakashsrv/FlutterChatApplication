@@ -1,0 +1,1 @@
+{"valid_import":true,"imports":[{"uri":"package:flutter_chat_app/feature/chat/domain/model/message.dart","transitive":false},{"uri":"package:flutter_chat_app/feature/chat/domain/repository/chat_repository.dart","transitive":false}],"elements":[]}

@@ -1,0 +1,1 @@
+{"valid_import":true,"imports":[{"uri":"package:flutter_test/flutter_test.dart","transitive":false},{"uri":"package:flutter_chat_app/feature/chat/data/stream/fake_chat_stream.dart","transitive":false},{"uri":"package:flutter_chat_app/feature/chat/domain/model/message_status.dart","transitive":false}],"elements":[]}

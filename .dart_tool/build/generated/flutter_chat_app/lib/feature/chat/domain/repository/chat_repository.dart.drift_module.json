@@ -1,0 +1,6 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter_chat_app/feature/chat/domain/model/message.dart"
+  ]
+}

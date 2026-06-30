@@ -1,0 +1,16 @@
+{
+  "elements": {},
+  "imports": [
+    "package:get_it/get_it.dart",
+    "package:flutter_chat_app/core/database/app_database.dart",
+    "package:flutter_chat_app/feature/chat/data/repository/chat_repository_impl.dart",
+    "package:flutter_chat_app/feature/chat/data/stream/fake_chat_stream.dart",
+    "package:flutter_chat_app/feature/chat/data/stream/fake_network_config.dart",
+    "package:flutter_chat_app/feature/chat/domain/repository/chat_repository.dart",
+    "package:flutter_chat_app/feature/chat/domain/stream/chat_message_stream.dart",
+    "package:flutter_chat_app/feature/chat/domain/usecase/observe_messages_usecase.dart",
+    "package:flutter_chat_app/feature/chat/domain/usecase/retry_message_usecase.dart",
+    "package:flutter_chat_app/feature/chat/domain/usecase/send_message_usecase.dart",
+    "package:flutter_chat_app/feature/chat/presentation/chat/chat_bloc.dart"
+  ]
+}

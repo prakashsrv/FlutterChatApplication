@@ -1,0 +1,8 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter_test/flutter_test.dart",
+    "package:flutter_chat_app/feature/chat/data/stream/fake_chat_stream.dart",
+    "package:flutter_chat_app/feature/chat/domain/model/message_status.dart"
+  ]
+}

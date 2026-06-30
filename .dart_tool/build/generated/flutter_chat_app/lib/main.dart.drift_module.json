@@ -1,0 +1,8 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter_chat_app/app.dart",
+    "package:flutter_chat_app/core/di/injection.dart"
+  ]
+}

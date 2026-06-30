@@ -1,0 +1,12 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter_bloc/flutter_bloc.dart",
+    "package:go_router/go_router.dart",
+    "package:flutter_chat_app/core/di/injection.dart",
+    "package:flutter_chat_app/feature/chat/data/stream/fake_chat_stream.dart",
+    "package:flutter_chat_app/feature/chat/presentation/chat/chat_bloc.dart",
+    "package:flutter_chat_app/feature/chat/presentation/chat/chat_screen.dart"
+  ]
+}

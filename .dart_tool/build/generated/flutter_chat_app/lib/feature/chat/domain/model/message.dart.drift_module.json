@@ -1,0 +1,7 @@
+{
+  "elements": {},
+  "imports": [
+    "package:freezed_annotation/freezed_annotation.dart",
+    "package:flutter_chat_app/feature/chat/domain/model/message_status.dart"
+  ]
+}
